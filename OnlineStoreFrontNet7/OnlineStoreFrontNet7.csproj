@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -14,6 +14,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineStoreNet7.DataAccess\OnlineStoreNet7.DataAccess.csproj" />
+    <ProjectReference Include="..\OnlineStoreNet7.Models\OnlineStoreNet7.Models.csproj" />
   </ItemGroup>
 
 </Project>

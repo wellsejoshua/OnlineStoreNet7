@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineStoreFrontNet7.Data;
+using OnlineStoreFrontNet7.DataAccess.Data;
 using OnlineStoreFrontNet7.Models;
 
 namespace OnlineStoreFrontNet7.Controllers

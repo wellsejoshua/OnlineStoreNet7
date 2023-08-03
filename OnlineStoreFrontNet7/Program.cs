@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using OnlineStoreFrontNet7.Data;
+using OnlineStoreFrontNet7.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
