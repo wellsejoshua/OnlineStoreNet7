@@ -2,8 +2,9 @@
 using OnlineStoreFrontNet7.Models;
 using System.Diagnostics;
 
-namespace OnlineStoreFrontNet7.Controllers
+namespace OnlineStoreFrontNet7.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

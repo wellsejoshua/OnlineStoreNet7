@@ -4,16 +4,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using OnlineStoreFrontNet7.DataAccess;
 using OnlineStoreFrontNet7.DataAccess.Data;
 
 #nullable disable
 
-namespace OnlineStoreFrontNet7.DataAccess.Migrations
+namespace OnlineStoreNet7.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230801060940_AddCategoryTableToDb")]
-    partial class AddCategoryTableToDb
+    [Migration("20230803064115_AddCategoryToDbAndSeedTable")]
+    partial class AddCategoryToDbAndSeedTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

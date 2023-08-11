@@ -4,10 +4,10 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace OnlineStoreFrontNet7.DataAccess.Migrations
+namespace OnlineStoreNet7.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCategoryTableToDb : Migration
+    public partial class AddCategoryToDbAndSeedTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

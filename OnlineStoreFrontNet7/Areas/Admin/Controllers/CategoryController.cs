@@ -1,21 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineStoreFrontNet7.DataAccess.Data;
 using OnlineStoreFrontNet7.Models;
+using OnlineStoreNet7.DataAccess.Repository.IRepository;
 
-namespace OnlineStoreFrontNet7.Controllers
+namespace OnlineStoreFrontNet7.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        //Category Repository
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CategoryController(ApplicationDbContext context)
+        public CategoryController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _context.Categories.ToList(); ;
+            List<Category> objCategoryList = _unitOfWork.Category.GetAll().ToList();
             return View(objCategoryList);
         }
         [HttpGet]
@@ -23,7 +26,7 @@ namespace OnlineStoreFrontNet7.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
@@ -39,8 +42,8 @@ namespace OnlineStoreFrontNet7.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Categories.Add(obj);
-                _context.SaveChanges();
+                _unitOfWork.Category.Add(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Category created successfully";
                 return RedirectToAction("Index", "Category");
             }
@@ -55,7 +58,7 @@ namespace OnlineStoreFrontNet7.Controllers
             {
                 return NotFound();
             }
-            Category? category = _context.Categories.Find(id);
+            Category? category = _unitOfWork.Category.Get(u => u.Id == id);
 
             if (category == null)
             {
@@ -79,8 +82,8 @@ namespace OnlineStoreFrontNet7.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Categories.Update(obj);
-                _context.SaveChanges();
+                _unitOfWork.Category.Update(obj);
+                _unitOfWork.Save();
                 TempData["success"] = "Category updated successfully";
                 return RedirectToAction("Index", "Category");
             }
@@ -96,7 +99,7 @@ namespace OnlineStoreFrontNet7.Controllers
             {
                 return NotFound();
             }
-            Category? category = _context.Categories.Find(id);
+            Category? category = _unitOfWork.Category.Get(u => u.Id == id);
 
             if (category == null)
             {
@@ -109,13 +112,13 @@ namespace OnlineStoreFrontNet7.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            Category? obj = _context.Categories.Find(id); 
-            if (obj == null) 
+            Category? obj = _unitOfWork.Category.Get(u => u.Id == id);
+            if (obj == null)
             {
                 return NotFound();
             }
-            _context.Categories.Remove(obj);
-            _context.SaveChanges();
+            _unitOfWork.Category.Remove(obj);
+            _unitOfWork.Save();
             TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index");
         }
