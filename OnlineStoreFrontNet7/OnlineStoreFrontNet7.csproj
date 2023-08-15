@@ -22,8 +22,4 @@
     <ProjectReference Include="..\OnlineStoreNet7.Models\OnlineStoreNet7.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
