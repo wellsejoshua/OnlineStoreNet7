@@ -1,15 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OnlineStoreFrontNet7.DataAccess.Data;
 using OnlineStoreFrontNet7.Models;
 using OnlineStoreNet7.DataAccess.Repository.IRepository;
 using OnlineStoreNet7.Models.Models;
 using OnlineStoreNet7.Models.ViewModels;
-
+using OnlineStoreNet7.Utility;
 
 namespace OnlineStoreFrontNet7.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         //Product Repository

@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OnlineStoreFrontNet7.DataAccess.Data;
 using OnlineStoreFrontNet7.Models;
 using OnlineStoreNet7.DataAccess.Repository.IRepository;
+using OnlineStoreNet7.Utility;
+using System.Data;
 
 namespace OnlineStoreFrontNet7.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //[Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
         //Category Repository
